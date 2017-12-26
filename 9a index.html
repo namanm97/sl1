@@ -1,0 +1,32 @@
+<html>
+<head>
+<script type="text/javascript">
+function toggleMe() {
+var id = document.getElementById('Image1');
+if(id.style.display == "block") {
+id.style.display = "none";
+} else {
+id.style.display = "block";
+}
+}
+function addItem(){
+	var ul = document.getElementById("list");
+  var candidate = document.getElementById("candidate");
+  var li = document.createElement("li");
+  // li.setAttribute('id',candidate.value);
+  li.appendChild(document.createTextNode(candidate.value));
+  ul.appendChild(li);
+}
+</script>
+</head>
+<body>
+<h3 onmouseover="toggleMe()" onmouseout="toggleMe()">PIZZA</h3>
+<img src="piz.gif" id="Image1" style="display: none;" width=500px/>
+<br><br>
+<ul id="list">
+<li>Mexican veggie pizza</li>
+</ul>
+<input type="text" id="candidate"/>
+<button onclick="addItem()">add item</button>
+</body>
+</html>

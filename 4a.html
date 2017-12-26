@@ -1,0 +1,61 @@
+<!--
+4A
+Create a HTML form that will accept the marks of two subjects.
+The marks have to be a value between 0 to 100.
+The moment the mark is entered, display the grade obtained on the
+right side of the text-box. Also display the total marks obtained out of 200.
+Use Javascript for this client side scripting. Display appropriate error texts. -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function check(id, gradeID){
+			num = document.getElementById(id).value;
+			if (num > 0 && num <= 100){
+				document.getElementById(gradeID).value = getGrade(num);
+				var marks1 = document.getElementById("firstSubjectMarks").value;
+				var marks2 = document.getElementById("secondSubjectMarks").value;
+				document.getElementById("resut").value = +marks1 + +marks2;
+			}
+      else{
+				alert("Invalid Marks");
+			}
+		}
+
+		function getGrade(marks) {
+			if(marks >= 90 && marks <= 100 ){
+				return "S";
+			}else if(marks >= 75 && marks < 90 ){
+				return "A";
+			}else if(marks >= 60 && marks < 75 ){
+				return "B";
+			}else if(marks >= 50 && marks < 60 ){
+				return "C";
+			}else if(marks >= 45 && marks < 50 ){
+				return "D";
+      }else if(marks >= 50 && marks < 60 ){
+				return "E";
+			}else if(marks < 50 ){
+				return "F";
+			}
+			return "invalid"
+
+		}
+	</script>
+	<meta charset=utf-8 />
+	<title>Calculate Grade and Total of two subjects</title>
+	<style type="text/css">
+	/* body {margin: 30px;} */
+</style>
+</head>
+<body>
+	<form>
+		1st Number : <input type="number" id="firstSubjectMarks" onchange="check('firstSubjectMarks','firstSubjectGrade')" /><input type="text" id="firstSubjectGrade" disabled /><br>
+		2nd Number: <input type="number" id="secondSubjectMarks" onchange="check('secondSubjectMarks', 'secondSubjectGrade')" /><input type="text" id="secondSubjectGrade" disabled/><br>
+		Total: <input type="text" id="resut" value="0" disabled>
+	</form>
+</body>
+</html>
